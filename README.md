@@ -6,11 +6,11 @@ This workspace includes a local Codex plugin for turning rough video ideas into 
 
 - `plugins/remotion-storyboard`
 
-## Install in Codex
+## Install from GitHub
 
-This repo follows the Codex marketplace model described in the official plugin build docs.
+This repository can be installed in Codex directly from GitHub through the marketplace flow described in the official plugin build docs.
 
-### Install from GitHub
+### GitHub marketplace command
 
 Register this repository as a marketplace source with the Codex CLI:
 
@@ -24,7 +24,7 @@ You can also use the full Git URL form if you prefer:
 codex plugin marketplace add https://github.com/zz41354899/SwiftMographer.git --ref main
 ```
 
-After adding the marketplace:
+After adding the GitHub marketplace:
 
 1. Restart Codex.
 2. Open the plugin directory.
@@ -33,12 +33,13 @@ After adding the marketplace:
 
 Notes:
 
+- This is a GitHub install path, not a local path install.
 - `owner/repo` and Git URL sources are both supported by Codex.
 - `--ref main` pins the marketplace to the main branch.
 - Do not use `--sparse .agents/plugins` for this repo. The marketplace file lives in `.agents/plugins/marketplace.json`, but the plugin itself lives under `plugins/`, so sparse checkout of only `.agents/plugins` would miss the actual plugin files.
 - To refresh later, run `codex plugin marketplace upgrade`.
 
-### Install from a local clone
+### Local development alternative
 
 If you are iterating on the plugin locally, you can register the repo root as a local marketplace source:
 
