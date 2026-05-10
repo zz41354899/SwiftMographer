@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 -c 'import json,re,sys; payload=json.load(sys.stdin); msg=payload.get(\"last_assistant_message\") or \"\"; markers=(\"Concept Summary\",\"Creative Direction\",\"Scene Timeline\",\"Remotion Storyboard Script\",\"HyperFrames Composition Plan\",\"Markdown Storyboard\",\"HTML Storyboard\"); looks_like_storyboard=any(marker in msg for marker in markers); fence_types=[match.group(1).lower() for match in re.finditer(r\"^```([A-Za-z0-9_-]+)\\s*$\", msg, re.MULTILINE)]; valid_tail=len(fence_types) >= 2 and fence_types[-2:] == [\"md\", \"html\"]; response={\"continue\": True} if (not looks_like_storyboard or valid_tail) else {\"decision\": \"block\", \"reason\": \"Storyboard responses must end with two standalone artifacts: one ```md``` Markdown Storyboard block followed by one ```html``` HTML Storyboard block.\"}; print(json.dumps(response))'",
+            "timeout": 10,
+            "statusMessage": "Validating storyboard artifacts"
+          }
+        ]
+      }
+    ]
+  }
+}

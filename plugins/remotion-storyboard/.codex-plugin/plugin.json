@@ -1,0 +1,20 @@
+{
+  "name": "remotion-storyboard",
+  "version": "0.3.0",
+  "description": "Turn video ideas into precise Remotion or HyperFrames storyboards and implementation-ready scene plans.",
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "Motion Storyboard",
+    "shortDescription": "Generate Apple-grade storyboards for Remotion or HyperFrames.",
+    "longDescription": "Converts rough video concepts into structured runtime-specific scene scripts with pacing, transitions, and implementation guidance for Remotion or HyperFrames.",
+    "developerName": "Local Workspace",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "Turn this product promo concept into a 45-second Remotion storyboard.",
+      "Turn this launch concept into a deterministic HyperFrames composition plan with HTML structure, timing attributes, and render workflow."
+    ],
+    "brandColor": "#0F172A"
+  }
+}
