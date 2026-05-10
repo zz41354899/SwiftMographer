@@ -1,0 +1,49 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#ECE7DE"/>
+  <rect x="72" y="54" width="1456" height="792" rx="36" fill="#FAF7F0" stroke="#DDD6CA"/>
+  <text x="126" y="140" fill="#0F172A" font-size="42" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="700">Motion Storyboard</text>
+  <text x="126" y="176" fill="#64748B" font-size="20" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">Runtime: Remotion   Duration: 45s   Aspect: 16:9</text>
+  <text x="126" y="212" fill="#475569" font-size="20" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">A restrained product film with paced reveals, dense middle beats, and a clean brand lockup.</text>
+  <rect x="126" y="250" width="1348" height="42" rx="21" fill="#E7E0D4"/>
+  <rect x="134" y="258" width="250" height="26" rx="13" fill="#C2410C"/>
+  <rect x="390" y="258" width="318" height="26" rx="13" fill="#334155"/>
+  <rect x="714" y="258" width="236" height="26" rx="13" fill="#64748B"/>
+  <rect x="956" y="258" width="264" height="26" rx="13" fill="#94A3B8"/>
+  <rect x="1226" y="258" width="240" height="26" rx="13" fill="#CBD5E1"/>
+  <rect x="126" y="336" width="412" height="212" rx="28" fill="#FFFFFF" stroke="#DDD6CA"/>
+  <rect x="126" y="572" width="412" height="212" rx="28" fill="#FFFFFF" stroke="#DDD6CA"/>
+  <rect x="562" y="336" width="412" height="212" rx="28" fill="#FFFFFF" stroke="#DDD6CA"/>
+  <rect x="562" y="572" width="412" height="212" rx="28" fill="#FFFFFF" stroke="#DDD6CA"/>
+  <rect x="998" y="336" width="476" height="448" rx="28" fill="#FFFFFF" stroke="#DDD6CA"/>
+  <text x="158" y="384" fill="#0F172A" font-size="18" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="700">01 Opening Atmosphere</text>
+  <text x="158" y="410" fill="#64748B" font-size="14" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">0:00-0:06   f0-f180</text>
+  <rect x="158" y="432" width="160" height="72" rx="18" fill="#0F172A"/>
+  <rect x="334" y="432" width="172" height="72" rx="18" fill="#EAE3D8"/>
+  <text x="158" y="526" fill="#475569" font-size="14" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">Dark hero field, narrow copy, gentle reveal.</text>
+  <text x="158" y="548" fill="#9A3412" font-size="14" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">fade + vertical drift</text>
+  <text x="594" y="384" fill="#0F172A" font-size="18" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="700">02 Product Framing</text>
+  <text x="594" y="410" fill="#64748B" font-size="14" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">0:06-0:15   f180-f450</text>
+  <rect x="594" y="432" width="160" height="72" rx="18" fill="#EAE3D8"/>
+  <rect x="770" y="432" width="172" height="72" rx="18" fill="#C2410C"/>
+  <text x="594" y="526" fill="#475569" font-size="14" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">UI enters in layered cards with steady spacing.</text>
+  <text x="594" y="548" fill="#9A3412" font-size="14" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">sequence stagger</text>
+  <text x="1030" y="384" fill="#0F172A" font-size="18" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="700">Scene Grid Preview</text>
+  <text x="1030" y="410" fill="#64748B" font-size="14" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">Consistent card template with preview, cues, and runtime notes.</text>
+  <rect x="1030" y="440" width="184" height="112" rx="24" fill="#0F172A"/>
+  <rect x="1232" y="440" width="210" height="48" rx="24" fill="#EAE3D8"/>
+  <rect x="1232" y="504" width="210" height="48" rx="24" fill="#CBD5E1"/>
+  <rect x="1030" y="580" width="412" height="18" rx="9" fill="#E7E0D4"/>
+  <rect x="1030" y="612" width="334" height="14" rx="7" fill="#94A3B8"/>
+  <rect x="1030" y="644" width="290" height="14" rx="7" fill="#C2410C" fill-opacity="0.3"/>
+  <rect x="1030" y="696" width="206" height="30" rx="15" fill="#0F172A" fill-opacity="0.08"/>
+  <text x="1062" y="716" fill="#0F172A" font-size="14" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">runtime notes</text>
+  <text x="158" y="620" fill="#0F172A" font-size="18" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="700">03 Metric Density</text>
+  <text x="158" y="646" fill="#64748B" font-size="14" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">0:15-0:31   f450-f930</text>
+  <rect x="158" y="668" width="94" height="72" rx="18" fill="#C2410C"/>
+  <rect x="268" y="668" width="110" height="72" rx="18" fill="#EAE3D8"/>
+  <rect x="394" y="668" width="112" height="72" rx="18" fill="#233044"/>
+  <text x="594" y="620" fill="#0F172A" font-size="18" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="700">04 Brand Resolution</text>
+  <text x="594" y="646" fill="#64748B" font-size="14" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">0:31-0:45   f930-f1350</text>
+  <rect x="594" y="668" width="348" height="72" rx="18" fill="#0F172A"/>
+  <text x="126" y="812" fill="#64748B" font-size="16" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">Footer notes: final artifact includes Markdown handoff + HTML storyboard board.</text>
+</svg>

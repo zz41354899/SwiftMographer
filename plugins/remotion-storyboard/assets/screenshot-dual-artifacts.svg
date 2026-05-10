@@ -1,0 +1,32 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#EFE9DF"/>
+  <rect x="72" y="60" width="1456" height="780" rx="36" fill="#FAF7F1" stroke="#DDD4C7"/>
+  <text x="120" y="138" fill="#0F172A" font-size="40" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="700">Dual Artifact Delivery</text>
+  <text x="120" y="174" fill="#64748B" font-size="20" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">Every storyboard ends with a Markdown handoff and a visual HTML board.</text>
+  <rect x="120" y="226" width="640" height="538" rx="28" fill="#FFFFFF" stroke="#DDD4C7"/>
+  <rect x="840" y="226" width="640" height="538" rx="28" fill="#FFFFFF" stroke="#DDD4C7"/>
+  <text x="160" y="274" fill="#0F172A" font-size="22" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="700">Markdown Storyboard</text>
+  <text x="880" y="274" fill="#0F172A" font-size="22" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="700">HTML Storyboard</text>
+  <rect x="160" y="304" width="178" height="12" rx="6" fill="#CBD5E1"/>
+  <rect x="160" y="338" width="420" height="10" rx="5" fill="#E2E8F0"/>
+  <rect x="160" y="370" width="390" height="10" rx="5" fill="#E2E8F0"/>
+  <rect x="160" y="426" width="560" height="130" rx="20" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <line x1="160" y1="470" x2="720" y2="470" stroke="#E2E8F0"/>
+  <line x1="320" y1="426" x2="320" y2="556" stroke="#E2E8F0"/>
+  <line x1="520" y1="426" x2="520" y2="556" stroke="#E2E8F0"/>
+  <rect x="160" y="598" width="228" height="12" rx="6" fill="#CBD5E1"/>
+  <rect x="160" y="630" width="500" height="10" rx="5" fill="#E2E8F0"/>
+  <rect x="160" y="662" width="456" height="10" rx="5" fill="#E2E8F0"/>
+  <rect x="880" y="304" width="220" height="12" rx="6" fill="#CBD5E1"/>
+  <rect x="880" y="340" width="560" height="34" rx="17" fill="#E7E0D4"/>
+  <rect x="888" y="348" width="184" height="18" rx="9" fill="#C2410C"/>
+  <rect x="1080" y="348" width="190" height="18" rx="9" fill="#334155"/>
+  <rect x="1278" y="348" width="154" height="18" rx="9" fill="#94A3B8"/>
+  <rect x="880" y="410" width="266" height="154" rx="24" fill="#0F172A"/>
+  <rect x="1164" y="410" width="276" height="154" rx="24" fill="#F4EFE5"/>
+  <rect x="880" y="590" width="560" height="18" rx="9" fill="#E2E8F0"/>
+  <rect x="880" y="624" width="428" height="14" rx="7" fill="#CBD5E1"/>
+  <rect x="880" y="654" width="372" height="14" rx="7" fill="#C2410C" fill-opacity="0.32"/>
+  <rect x="120" y="792" width="240" height="26" rx="13" fill="#C2410C" fill-opacity="0.12"/>
+  <text x="154" y="810" fill="#9A3412" font-size="16" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="600">artifact order: md then html</text>
+</svg>

@@ -6,6 +6,48 @@ This workspace includes a local Codex plugin for turning rough video ideas into 
 
 - `plugins/remotion-storyboard`
 
+## Install in Codex
+
+This repo follows the Codex marketplace model described in the official plugin build docs.
+
+### Install from GitHub
+
+Register this repository as a marketplace source with the Codex CLI:
+
+```bash
+codex plugin marketplace add zz41354899/SwiftMographer --ref main
+```
+
+You can also use the full Git URL form if you prefer:
+
+```bash
+codex plugin marketplace add https://github.com/zz41354899/SwiftMographer.git --ref main
+```
+
+After adding the marketplace:
+
+1. Restart Codex.
+2. Open the plugin directory.
+3. Choose the `SwiftMographer Local Plugins` marketplace.
+4. Install `Motion Storyboard`.
+
+Notes:
+
+- `owner/repo` and Git URL sources are both supported by Codex.
+- `--ref main` pins the marketplace to the main branch.
+- Do not use `--sparse .agents/plugins` for this repo. The marketplace file lives in `.agents/plugins/marketplace.json`, but the plugin itself lives under `plugins/`, so sparse checkout of only `.agents/plugins` would miss the actual plugin files.
+- To refresh later, run `codex plugin marketplace upgrade`.
+
+### Install from a local clone
+
+If you are iterating on the plugin locally, you can register the repo root as a local marketplace source:
+
+```bash
+codex plugin marketplace add /absolute/path/to/SwiftMographer
+```
+
+This works because the repo already includes a repo-scoped marketplace at `.agents/plugins/marketplace.json` and the plugin directory at `plugins/remotion-storyboard`.
+
 ## Included skills
 
 - `remotion-storyboard-director`
@@ -32,6 +74,15 @@ Its job is narrow: when a response looks like a storyboard delivery, it checks t
 - one `html` storyboard block
 
 If that contract is missing, the hook asks Codex to continue and complete the missing deliverables.
+
+## Install-surface metadata
+
+The plugin manifest now includes:
+
+- author and homepage metadata
+- a composer icon
+- a wide logo
+- screenshot assets for the install surface
 
 ## Local marketplace
 

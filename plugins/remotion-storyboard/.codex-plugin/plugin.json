@@ -1,20 +1,40 @@
 {
   "name": "remotion-storyboard",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Turn video ideas into precise Remotion or HyperFrames storyboards and implementation-ready scene plans.",
+  "author": {
+    "name": "zz41354899",
+    "url": "https://github.com/zz41354899"
+  },
+  "homepage": "https://github.com/zz41354899/SwiftMographer",
+  "repository": "https://github.com/zz41354899/SwiftMographer",
+  "keywords": [
+    "motion-design",
+    "storyboard",
+    "remotion",
+    "hyperframes",
+    "codex-plugin"
+  ],
   "skills": "./skills/",
   "hooks": "./hooks/hooks.json",
   "interface": {
     "displayName": "Motion Storyboard",
     "shortDescription": "Generate Apple-grade storyboards for Remotion or HyperFrames.",
-    "longDescription": "Converts rough video concepts into structured runtime-specific scene scripts with pacing, transitions, and implementation guidance for Remotion or HyperFrames.",
-    "developerName": "Local Workspace",
+    "longDescription": "Converts rough video concepts into structured runtime-specific scene scripts, synchronized Markdown and HTML storyboard artifacts, and implementation guidance for Remotion or HyperFrames.",
+    "developerName": "zz41354899",
     "category": "Productivity",
     "capabilities": ["Read", "Write"],
+    "websiteURL": "https://github.com/zz41354899/SwiftMographer",
     "defaultPrompt": [
       "Turn this product promo concept into a 45-second Remotion storyboard.",
       "Turn this launch concept into a deterministic HyperFrames composition plan with HTML structure, timing attributes, and render workflow."
     ],
-    "brandColor": "#0F172A"
+    "brandColor": "#0F172A",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/logo.svg",
+    "screenshots": [
+      "./assets/screenshot-storyboard-board.svg",
+      "./assets/screenshot-dual-artifacts.svg"
+    ]
   }
 }
