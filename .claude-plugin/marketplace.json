@@ -1,0 +1,20 @@
+{
+  "name": "swiftmographer-local",
+  "interface": {
+    "displayName": "SwiftMographer Local Plugins"
+  },
+  "plugins": [
+    {
+      "name": "remotion-storyboard",
+      "source": {
+        "source": "local",
+        "path": "./plugins/remotion-storyboard"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

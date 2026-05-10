@@ -6,6 +6,15 @@ This workspace includes a local Codex plugin for turning rough video ideas into 
 
 - `plugins/remotion-storyboard`
 
+## Marketplace compatibility
+
+This repository now ships both marketplace entry points:
+
+- `.agents/plugins/marketplace.json` for the standard Codex repo marketplace path
+- `.claude-plugin/marketplace.json` for Claude-style marketplace compatibility
+
+That means the same GitHub repository can be used in environments that look for either layout.
+
 ## Install from GitHub
 
 This repository can be installed in Codex directly from GitHub through the marketplace flow described in the official plugin build docs.
@@ -38,6 +47,8 @@ Notes:
 - `--ref main` pins the marketplace to the main branch.
 - Do not use `--sparse .agents/plugins` for this repo. The marketplace file lives in `.agents/plugins/marketplace.json`, but the plugin itself lives under `plugins/`, so sparse checkout of only `.agents/plugins` would miss the actual plugin files.
 - To refresh later, run `codex plugin marketplace upgrade`.
+
+If your environment prefers a Claude-style marketplace layout, this repo also includes `.claude-plugin/marketplace.json` with the same plugin catalog.
 
 ### Local development alternative
 
@@ -90,8 +101,9 @@ The plugin manifest now includes:
 The repo-scoped marketplace is defined at:
 
 - `.agents/plugins/marketplace.json`
+- `.claude-plugin/marketplace.json`
 
-Codex can load the plugin from that marketplace after restart.
+Codex can read the standard repo marketplace path and also recognizes the Claude-style marketplace path documented in the plugin build docs.
 
 ## Example prompt
 
