@@ -11,9 +11,9 @@ This workspace includes a local Codex plugin for turning rough video ideas into 
 This repository now ships both marketplace entry points:
 
 - `.agents/plugins/marketplace.json` for the standard Codex repo marketplace path
-- `.claude-plugin/marketplace.json` for Claude-style marketplace compatibility
+- `.claude-plugin/marketplace.json` for Claude Code marketplace compatibility
 
-That means the same GitHub repository can be used in environments that look for either layout.
+That means the same GitHub repository can be used in both Codex and Claude Code, but each tool reads a different marketplace manifest shape.
 
 ## Install from GitHub
 
@@ -48,7 +48,36 @@ Notes:
 - Do not use `--sparse .agents/plugins` for this repo. The marketplace file lives in `.agents/plugins/marketplace.json`, but the plugin itself lives under `plugins/`, so sparse checkout of only `.agents/plugins` would miss the actual plugin files.
 - To refresh later, run `codex plugin marketplace upgrade`.
 
-If your environment prefers a Claude-style marketplace layout, this repo also includes `.claude-plugin/marketplace.json` with the same plugin catalog.
+## Install in Claude Code
+
+Claude Code uses the `.claude-plugin/marketplace.json` manifest and a different CLI syntax.
+
+### GitHub marketplace command
+
+Add this repository from GitHub:
+
+```bash
+claude plugin marketplace add zz41354899/SwiftMographer@main
+```
+
+You can also use the full Git URL form with a ref suffix:
+
+```bash
+claude plugin marketplace add https://github.com/zz41354899/SwiftMographer.git#main
+```
+
+Then install the plugin from the marketplace:
+
+```bash
+claude plugin install remotion-storyboard@swiftmographer-local
+```
+
+Notes:
+
+- Claude Code uses `@ref` with GitHub shorthand and `#ref` with git URLs.
+- Claude Code reads `.claude-plugin/marketplace.json`, not `.agents/plugins/marketplace.json`.
+- To refresh marketplaces later, run `claude plugin marketplace update`.
+- To validate the marketplace locally in Claude Code environments, run `claude plugin validate .`.
 
 ### Local development alternative
 
@@ -103,7 +132,7 @@ The repo-scoped marketplace is defined at:
 - `.agents/plugins/marketplace.json`
 - `.claude-plugin/marketplace.json`
 
-Codex can read the standard repo marketplace path and also recognizes the Claude-style marketplace path documented in the plugin build docs.
+Codex reads the standard repo marketplace path, while Claude Code reads the Claude-specific marketplace path.
 
 ## Example prompt
 

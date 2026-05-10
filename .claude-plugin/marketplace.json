@@ -1,20 +1,26 @@
 {
   "name": "swiftmographer-local",
-  "interface": {
-    "displayName": "SwiftMographer Local Plugins"
+  "owner": {
+    "name": "zz41354899"
   },
+  "description": "Motion storyboard plugins for Remotion and HyperFrames workflows.",
   "plugins": [
     {
       "name": "remotion-storyboard",
-      "source": {
-        "source": "local",
-        "path": "./plugins/remotion-storyboard"
+      "source": "./plugins/remotion-storyboard",
+      "description": "Generate structured Markdown and HTML storyboards for Remotion or HyperFrames.",
+      "author": {
+        "name": "zz41354899"
       },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
+      "homepage": "https://github.com/zz41354899/SwiftMographer",
+      "repository": "https://github.com/zz41354899/SwiftMographer",
+      "category": "productivity",
+      "keywords": [
+        "motion-design",
+        "storyboard",
+        "remotion",
+        "hyperframes"
+      ]
     }
   ]
 }
