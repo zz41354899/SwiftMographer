@@ -6,7 +6,7 @@ This document defines the non-negotiable product and quality rules for SwiftMogr
 
 ### Article I - Mission
 
-SwiftMographer exists to turn rough motion ideas into buildable, runtime-specific storyboard handoffs for Remotion and HyperFrames.
+SwiftMographer exists to turn rough motion ideas into buildable, runtime-specific storyboard handoffs for Remotion and Manim.
 
 ### Article II - One Artifact
 
@@ -27,10 +27,10 @@ If the work stops at a broad scene list, it is incomplete.
 
 ### Article IV - Runtime Truth
 
-Remotion and HyperFrames are not interchangeable.
+Remotion and Manim are not interchangeable.
 
 - Remotion outputs should think in sequences, components, springs, interpolation, and composition pacing.
-- HyperFrames outputs should think in HTML structure, clips, tracks, timing attributes, CSS / GSAP / Lottie, and deterministic playback.
+- Manim outputs should think in Python scene classes, mobjects, animation primitives, camera movement, render commands, and environment setup.
 
 ### Article V - Production Quality
 
@@ -90,7 +90,7 @@ Breaking delivery-contract changes require a version bump.
 
 ### 第一條 - 任務
 
-SwiftMographer 的任務，是把模糊的動態概念轉成 Remotion 與 HyperFrames 可直接落地的分鏡 handoff。
+SwiftMographer 的任務，是把模糊的動態概念轉成 Remotion 與 Manim 可直接落地的分鏡 handoff。
 
 ### 第二條 - 單一產物
 
@@ -111,10 +111,10 @@ SwiftMographer 的任務，是把模糊的動態概念轉成 Remotion 與 HyperF
 
 ### 第四條 - 尊重 Runtime 真相
 
-Remotion 與 HyperFrames 不能寫成一樣的東西。
+Remotion 與 Manim 不能寫成一樣的東西。
 
 - Remotion 應以 sequences、components、spring、interpolate 與 composition pacing 為核心
-- HyperFrames 應以 HTML structure、clips、tracks、timing attributes、CSS / GSAP / Lottie 與 deterministic playback 為核心
+- Manim 應以 Python scene classes、mobjects、animation primitives、camera movement、render commands 與 environment setup 為核心
 
 ### 第五條 - 生產級品質
 

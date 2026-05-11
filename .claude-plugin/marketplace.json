@@ -3,12 +3,12 @@
   "owner": {
     "name": "zz41354899"
   },
-  "description": "Motion storyboard plugins for premium Markdown handoffs in Remotion and HyperFrames workflows.",
+  "description": "Motion storyboard plugins for premium Markdown handoffs in Remotion and Manim workflows.",
   "plugins": [
     {
       "name": "remotion-storyboard",
       "source": "./plugins/remotion-storyboard",
-      "description": "Generate premium Markdown storyboards and runtime-specific implementation plans for Remotion or HyperFrames.",
+      "description": "Generate premium Markdown storyboards and runtime-specific implementation plans for Remotion or Manim.",
       "author": {
         "name": "zz41354899"
       },
@@ -19,7 +19,7 @@
         "motion-design",
         "storyboard",
         "remotion",
-        "hyperframes"
+        "manim"
       ]
     }
   ]

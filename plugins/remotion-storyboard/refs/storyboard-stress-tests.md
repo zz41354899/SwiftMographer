@@ -1,6 +1,6 @@
 # Storyboard Stress-Test References
 
-These reference cases are for pressure-testing both storyboard skills across different runtimes and animation archetypes.
+These reference cases are for pressure-testing both storyboard skills across different runtimes and animation archetypes. The Manim cases intentionally emphasize math, physics/dynamics, algorithms, and data explanation because those are the runtime's clearest strengths.
 
 Use them to verify that the model:
 
@@ -15,7 +15,7 @@ Use them to verify that the model:
 Run each case against both skills:
 
 - `remotion-storyboard-director`
-- `hyperframes-storyboard-director`
+- `manim-storyboard-director`
 
 Then inspect the output for:
 
@@ -23,6 +23,7 @@ Then inspect the output for:
 - shot count
 - pacing curve
 - runtime-specific implementation notes
+- uv-based setup and render workflow for Manim outputs
 - Markdown richness and handoff clarity
 - failure modes such as generic 5-scene output, flat pacing, or missing shot-level detail
 
@@ -30,174 +31,175 @@ Then inspect the output for:
 
 | Case | Runtime | Expected scene range | Expected shot range | Main design pressure |
 |---|---:|---:|---:|---|
-| Logo ident | 6s | 1-2 | 2-4 | compact reveal logic, clean hold |
-| Kinetic typography | 18s | 3-4 | 6-9 | line timing, mask logic, beat rhythm |
-| Explainer | 45s | 5-7 | 12-18 | clarity, density control, modular sequencing |
+| Formula intuition | 20s | 3-4 | 6-9 | notation continuity, visual intuition |
+| Dynamics explanation | 30s | 4-5 | 8-12 | state variables, trajectories, updater logic |
+| Algorithm / data explainer | 45s | 5-7 | 12-18 | state transitions, chart scales, reusable builders |
 
-## Case 1: 6-Second Logo Ident
+## Case 1: 20-Second Formula Intuition
 
 ### Test Brief
 
-- Goal: launch a new AI creative tooling brand called `FrameForge`
-- Runtime: 6 seconds
-- Aspect ratio: 1:1
-- Tone: minimal, precise, high-end
-- Audio: one restrained hit at reveal, no voiceover
-- Assets: abstract logo mark plus wordmark
+- Goal: explain why Euler's identity connects rotation on the complex plane to sine and cosine
+- Runtime: 20 seconds
+- Aspect ratio: 16:9
+- Tone: clear, elegant, mathematical
+- Audio: calm voiceover, light emphasis hits, optional subtitles
+- Assets: equation text only; no external media
 
 ### Remotion Prompt
 
 ```text
-Turn this 6-second logo ident into a Remotion storyboard.
+Turn this 20-second formula intuition into a Remotion storyboard.
 
-Brand: FrameForge
-Type: logo ident
-Runtime: 6 seconds
-Aspect ratio: 1:1
-Tone: minimal, precise, high-end
-Requirements: clean silhouette reveal, one restrained audio hit, no voiceover, end on a held logo lockup
+Topic: Euler's identity and complex rotation
+Type: math visualization
+Runtime: 20 seconds
+Aspect ratio: 16:9
+Tone: clear, elegant, mathematical
+Requirements: show unit circle, rotating point, cosine/sine projections, equation continuity, calm voiceover, optional subtitles
 ```
 
-### HyperFrames Prompt
+### Manim Prompt
 
 ```text
-Turn this 6-second logo ident into a HyperFrames composition plan.
+Turn this 20-second formula intuition into a Manim scene plan.
 
-Brand: FrameForge
-Type: logo ident
-Runtime: 6 seconds
-Aspect ratio: 1:1
-Tone: minimal, precise, high-end
-Requirements: deterministic HTML structure, compact clip phases, one restrained audio hit, end on a held logo lockup
-```
-
-### What Good Output Looks Like
-
-- 1 to 2 scenes, not 5 scenes
-- 2 to 4 shots or motion phases with explicit timing
-- clear reveal sequence such as silhouette build → mark reveal → wordmark settle → final hold
-- minimal copy and no fake feature messaging
-- Remotion output favors a compact Sequence layout and a few reusable reveal components
-- HyperFrames output favors a small number of clips, explicit phase boundaries, and minimal track usage
-
-### Failure Signals
-
-- invents a full product narrative
-- adds unnecessary subtitles or feature bullets
-- treats the ident like a SaaS explainer
-- omits the final hold
-
-## Case 2: 18-Second Kinetic Typography
-
-### Test Brief
-
-- Goal: announce a manifesto-style message for a productivity brand
-- Runtime: 18 seconds
-- Aspect ratio: 9:16
-- Tone: bold, editorial, rhythmic
-- Audio: beat-driven music, no voiceover
-- Copy: `Plan faster. Think clearer. Ship with confidence.`
-
-### Remotion Prompt
-
-```text
-Turn this 18-second kinetic typography concept into a Remotion storyboard.
-
-Brand: Northstar OS
-Type: kinetic typography
-Runtime: 18 seconds
-Aspect ratio: 9:16
-Tone: bold, editorial, rhythmic
-Copy: Plan faster. Think clearer. Ship with confidence.
-Requirements: beat-accurate type timing, strong hierarchy shifts, no UI demo, no voiceover
-```
-
-### HyperFrames Prompt
-
-```text
-Turn this 18-second kinetic typography concept into a HyperFrames composition plan.
-
-Brand: Northstar OS
-Type: kinetic typography
-Runtime: 18 seconds
-Aspect ratio: 9:16
-Tone: bold, editorial, rhythmic
-Copy: Plan faster. Think clearer. Ship with confidence.
-Requirements: HTML-friendly text wrappers, deterministic timing, beat-accurate transitions, no UI demo, no voiceover
+Topic: Euler's identity and complex rotation
+Type: math visualization
+Runtime: 20 seconds
+Aspect ratio: 16:9
+Tone: clear, elegant, mathematical
+Requirements: NumberPlane or ComplexPlane, unit circle, rotating point driven by ValueTracker, cosine/sine projections, TransformMatchingTex, equation continuity, calm voiceover, optional subtitles
 ```
 
 ### What Good Output Looks Like
 
 - 3 to 4 scenes and about 6 to 9 shots
-- strong line grouping and emphasis changes across the three phrases
-- type masks, stagger logic, scale shifts, or directional wipes tied to beat timing
-- readable holds between aggressive beats
-- Remotion output names components such as TypeLineGroup, AccentWord, MaskWipe, or BeatDivider
-- HyperFrames output explains line wrappers, mask layers, and whether CSS or GSAP controls the reveals
+- a clear progression: complex plane → rotating radius → x/y projections → equation lockup
+- notation stays continuous instead of jumping between unrelated formulas
+- Remotion output can describe the same visual beats in Sequence/component terms
+- Manim output identifies ComplexPlane or NumberPlane, unit circle, Dot, Line projections, ValueTracker/updater lifecycle, and TransformMatchingTex
+- Manim CLI workflow defaults to `uv init`, `uv add manim`, `uv run manim checkhealth`, and `uv run manim -pql ...`
 
 ### Failure Signals
 
-- treats the piece like a UI walkthrough
-- leaves long static text on screen with no internal shot logic
-- uses the same composition for every phrase
-- ignores beat timing or line hierarchy
+- treats the equation as decorative typography
+- omits the complex plane or projection logic
+- changes notation without explaining continuity
+- uses ValueTracker/updaters without saying when they begin and end
 
-## Case 3: 45-Second Explainer
+## Case 2: 30-Second Damped Oscillator
 
 ### Test Brief
 
-- Goal: explain how an internal AI knowledge assistant works for enterprise teams
-- Runtime: 45 seconds
+- Goal: explain why a damped spring eventually stops oscillating
+- Runtime: 30 seconds
 - Aspect ratio: 16:9
-- Tone: clear, trustworthy, modern
-- Audio: calm voiceover plus subtitles
-- Assets: simple product UI, diagrams, and iconography
+- Tone: precise, physical, calm
+- Audio: concise voiceover plus light sound design
+- Assets: no external media; use simple shapes, graph, and equations
 
 ### Remotion Prompt
 
 ```text
-Turn this 45-second explainer into a Remotion storyboard.
+Turn this 30-second damped oscillator explanation into a Remotion storyboard.
 
-Product: Atlas Knowledge AI
-Type: explainer
-Runtime: 45 seconds
+Topic: Damped harmonic oscillator
+Type: physics / dynamics explanation
+Runtime: 30 seconds
 Aspect ratio: 16:9
-Tone: clear, trustworthy, modern
-Requirements: voiceover-supported pacing, subtitle support, diagram moments, UI staging, end with a confident brand payoff
+Tone: precise, physical, calm
+Requirements: show mass-spring system, displacement curve, damping force, energy decay, voiceover-supported pacing
 ```
 
-### HyperFrames Prompt
+### Manim Prompt
 
 ```text
-Turn this 45-second explainer into a HyperFrames composition plan.
+Turn this 30-second damped oscillator explanation into a Manim scene plan.
 
-Product: Atlas Knowledge AI
-Type: explainer
+Topic: Damped harmonic oscillator
+Type: physics / dynamics explanation
+Runtime: 30 seconds
+Aspect ratio: 16:9
+Tone: precise, physical, calm
+Requirements: mass-spring system, ValueTracker-driven displacement, force vectors, displacement-time graph, energy decay curve, updater lifecycle, voiceover-supported pacing
+```
+
+### What Good Output Looks Like
+
+- 4 to 5 scenes and about 8 to 12 shots
+- state variables are named: displacement, velocity, damping coefficient, energy
+- the spring/mass view and graph view remain visually synchronized
+- Remotion output can map the physical states to components and overlays
+- Manim output explains VGroups, ValueTracker/updaters, force vector updates, graph plotting, axes ranges, and where updaters are removed
+- Manim CLI workflow uses `uv run manim ...` rather than bare `manim ...`
+
+### Failure Signals
+
+- shows a bouncing object with no damping logic
+- omits axis ranges, units, or energy decay
+- uses continuous updaters without lifecycle notes
+- confuses force direction, displacement, and velocity
+
+## Case 3: 45-Second Algorithm and Data Explainer
+
+### Test Brief
+
+- Goal: explain how Dijkstra's algorithm finds shortest paths on a weighted graph
+- Runtime: 45 seconds
+- Aspect ratio: 16:9
+- Tone: clear, systematic, technical
+- Audio: calm voiceover plus subtitles
+- Assets: graph data only; no external media
+
+### Remotion Prompt
+
+```text
+Turn this 45-second Dijkstra explanation into a Remotion storyboard.
+
+Topic: Dijkstra's shortest path algorithm
+Type: algorithm visualization
 Runtime: 45 seconds
 Aspect ratio: 16:9
-Tone: clear, trustworthy, modern
-Requirements: deterministic HTML structure, clip-based sequencing, subtitle support, diagram moments, UI staging, and final render workflow
+Tone: clear, systematic, technical
+Requirements: weighted graph, visited set, priority queue state, distance table, highlighted relaxations, final shortest path, voiceover and subtitles
+```
+
+### Manim Prompt
+
+```text
+Turn this 45-second Dijkstra explanation into a Manim scene plan.
+
+Topic: Dijkstra's shortest path algorithm
+Type: algorithm visualization
+Runtime: 45 seconds
+Aspect ratio: 16:9
+Tone: clear, systematic, technical
+Requirements: weighted graph mobjects, visited set, priority queue display, distance table, highlighted edge relaxations, final shortest path, reusable graph/table builders, voiceover and subtitles
 ```
 
 ### What Good Output Looks Like
 
 - 5 to 7 scenes and about 12 to 18 shots
-- a clear act structure such as problem → mechanism → payoff
-- alternation between sparse orientation beats and denser information beats
-- distinct layouts for overview, UI detail, diagram explanation, and closing payoff
+- a clear act structure such as problem → data structure setup → repeated relaxation → final path
+- alternation between sparse orientation beats and denser algorithm state updates
+- distinct layouts for graph, priority queue, distance table, and final route
 - Remotion output maps well to Sequence groups and reusable scene components
-- HyperFrames output maps well to track zones, layered clips, and deterministic HTML modules
+- Manim output maps well to Scene classes, reusable graph/table mobject builders, comparison highlights, state transition helpers, and explicit render commands
+- Manim output includes a uv-based project setup and render workflow
 
 ### Failure Signals
 
 - equal-length scenes with no pacing curve
-- repetitive card layouts from start to finish
+- repetitive graph highlights with no state table updates
 - no shot list or no explicit transitions
 - runtime-specific implementation notes are too generic to build from
+- no invariant, visited-set, or priority-queue explanation
 
 ## Review Questions
 
 - Did the skill adapt the structure to the runtime instead of forcing a default 30-second shape?
 - Did the skill adapt the motion language to the animation archetype?
+- Did Manim output use uv as the default setup and render workflow?
 - Can an engineer build the result without inventing missing beats?
 - Is the Markdown artifact strong enough to stand on its own as a production handoff?

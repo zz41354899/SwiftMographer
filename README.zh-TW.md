@@ -2,7 +2,7 @@
 
 [English](README.md)
 
-SwiftMographer 是一個以 GitHub 為來源的 plugin repository，目標是把模糊的動態概念轉成可直接交付給設計與工程的高品質 Markdown 分鏡文件，並同時支援 Remotion 與 HyperFrames。
+SwiftMographer 是一個以 GitHub 為來源的 plugin repository，目標是把模糊的動態概念轉成可直接交付給設計與工程的高品質 Markdown 分鏡文件，並同時支援 Remotion 與 Manim。
 
 這個 repo 同時服務兩種情境：
 
@@ -14,7 +14,7 @@ SwiftMographer 是一個以 GitHub 為來源的 plugin repository，目標是把
 - 一個 plugin：`plugins/remotion-storyboard`
 - 兩個 runtime-specific skills：
   - `remotion-storyboard-director`
-  - `hyperframes-storyboard-director`
+  - `manim-storyboard-director`
 - 一個 stop hook，用來驗證最終 storyboard 交付格式
 - 一組 marketplace / install surface 資產
 - 一份壓測用的 stress-test references
@@ -27,7 +27,7 @@ SwiftMographer 是一個以 GitHub 為來源的 plugin repository，目標是把
 
 - 只交付一份高品質 Markdown handoff，不再交付 Markdown + HTML 雙產物
 - 必須同時具備 scene-level 與 shot-level 思考
-- 必須尊重 runtime 真相：Remotion 偏 sequence / component，HyperFrames 偏 HTML / clip / track
+- 必須尊重 runtime 真相：Remotion 偏 sequence / component，Manim 偏 Python scene / mobject / render workflow
 - 輸出要能直接實作，不能只停在漂亮但空泛的敘述
 
 ## 交付契約
@@ -143,13 +143,13 @@ Remotion skill 主要負責：
 - springs、interpolate 與節奏控制
 - 直接可交接的 Markdown storyboard
 
-### HyperFrames
+### Manim
 
-HyperFrames skill 主要負責：
+Manim skill 主要負責：
 
-- deterministic HTML composition 結構
-- clip timing 與 track layout
-- CSS / GSAP / Lottie 的實作規劃
+- Python Scene class 結構
+- mobject hierarchy 與 helper-method 規劃
+- Manim animation primitives、timing、camera movement 與 render workflow
 - runtime-specific 的 Markdown handoff
 
 ## 品質把關
@@ -182,16 +182,16 @@ Aspect ratio: 16:9
 Requirements: subtitle rhythm, no voiceover, end on a product logo lockup
 ```
 
-### HyperFrames
+### Manim
 
 ```text
-Turn this launch concept into a HyperFrames composition plan.
+Turn this launch concept into a Manim scene plan.
 
 Product: AI meeting summary tool
 Audience: startup teams and PMs
 Style: restrained, cinematic, minimal
 Aspect ratio: 16:9
-Requirements: deterministic HTML structure, GSAP animation notes, caption timing, final render workflow
+Requirements: Python Scene class structure, mobject hierarchy, caption timing, final render workflow
 ```
 
 ## Repo 結構

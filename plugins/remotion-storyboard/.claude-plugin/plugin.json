@@ -1,7 +1,7 @@
 {
   "name": "remotion-storyboard",
-  "description": "Generate premium Markdown storyboards and runtime-specific implementation plans for Remotion or HyperFrames.",
-  "version": "0.4.0",
+  "description": "Generate premium Markdown storyboards and runtime-specific implementation plans for Remotion or Manim.",
+  "version": "0.5.0",
   "author": {
     "name": "zz41354899"
   },
@@ -12,7 +12,7 @@
     "motion-design",
     "storyboard",
     "remotion",
-    "hyperframes"
+    "manim"
   ],
   "skills": "./skills/",
   "hooks": "./hooks/hooks.json"

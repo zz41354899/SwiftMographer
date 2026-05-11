@@ -5,7 +5,7 @@ const STORYBOARD_MARKERS = [
   "Creative Direction",
   "Scene Timeline",
   "Remotion Storyboard Script",
-  "HyperFrames Composition Plan",
+  "Manim Scene Plan",
   "Markdown Storyboard",
 ];
 

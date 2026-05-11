@@ -1,7 +1,7 @@
 {
   "name": "remotion-storyboard",
-  "version": "0.4.0",
-  "description": "Turn video ideas into high-fidelity Markdown storyboards and runtime-specific motion plans.",
+  "version": "0.5.0",
+  "description": "Turn video ideas into high-fidelity Markdown storyboards and runtime-specific Remotion or Manim motion plans.",
   "author": {
     "name": "zz41354899",
     "url": "https://github.com/zz41354899"
@@ -13,22 +13,22 @@
     "motion-design",
     "storyboard",
     "remotion",
-    "hyperframes",
+    "manim",
     "codex-plugin"
   ],
   "skills": "./skills/",
   "hooks": "./hooks/hooks.json",
   "interface": {
     "displayName": "Motion Storyboard",
-    "shortDescription": "Generate high-fidelity Markdown storyboards for Remotion or HyperFrames.",
-    "longDescription": "Converts rough video concepts into structured runtime-specific scene scripts, a premium Markdown storyboard handoff, and implementation guidance for Remotion or HyperFrames.",
+    "shortDescription": "Generate high-fidelity Markdown storyboards for Remotion or Manim.",
+    "longDescription": "Converts rough video concepts into structured runtime-specific scene scripts, a premium Markdown storyboard handoff, and implementation guidance for Remotion or Manim.",
     "developerName": "zz41354899",
     "category": "Productivity",
     "capabilities": ["Read", "Write"],
     "websiteURL": "https://github.com/zz41354899/SwiftMographer",
     "defaultPrompt": [
       "Create a 45-second Remotion storyboard with one premium Markdown handoff.",
-      "Create a HyperFrames composition plan with timing, tracks, and one Markdown handoff."
+      "Create a Manim scene plan with timing, mobjects, and one Markdown handoff."
     ],
     "brandColor": "#0F172A",
     "composerIcon": "./assets/icon.png",

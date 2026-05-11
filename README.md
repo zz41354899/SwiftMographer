@@ -2,7 +2,7 @@
 
 [繁體中文](README.zh-TW.md)
 
-SwiftMographer is a GitHub-hosted plugin repository for turning rough motion ideas into high-quality Markdown storyboard handoffs for Remotion and HyperFrames.
+SwiftMographer is a GitHub-hosted plugin repository for turning rough motion ideas into high-quality Markdown storyboard handoffs for Remotion and Manim.
 
 The repository is designed for two use cases at once:
 
@@ -14,7 +14,7 @@ The repository is designed for two use cases at once:
 - one plugin: `plugins/remotion-storyboard`
 - two runtime-specific skills:
 	- `remotion-storyboard-director`
-	- `hyperframes-storyboard-director`
+	- `manim-storyboard-director`
 - one stop hook that validates the final storyboard contract
 - install-surface assets for marketplace presentation
 - stress-test references for runtime and format regression checks
@@ -27,7 +27,7 @@ In short:
 
 - one premium Markdown handoff, not dual Markdown + HTML artifacts
 - scene-level and shot-level thinking are both required
-- runtime truth matters: Remotion stays sequence/component-oriented; HyperFrames stays HTML/clip/track-oriented
+- runtime truth matters: Remotion stays sequence/component-oriented; Manim stays Python scene/mobject/render-oriented
 - outputs should be buildable, not decorative or vague
 
 ## Delivery Contract
@@ -143,13 +143,13 @@ The Remotion skill is optimized for:
 - springs, interpolations, and pacing
 - production-ready Markdown handoff documents
 
-### HyperFrames
+### Manim
 
-The HyperFrames skill is optimized for:
+The Manim skill is optimized for:
 
-- deterministic HTML composition structure
-- clip timing and track layout
-- CSS / GSAP / Lottie implementation planning
+- Python Scene class structure
+- mobject hierarchy and helper-method planning
+- Manim animation primitives, timing, camera movement, and render workflow
 - runtime-specific Markdown handoff documents
 
 ## Quality Controls
@@ -182,16 +182,16 @@ Aspect ratio: 16:9
 Requirements: subtitle rhythm, no voiceover, end on a product logo lockup
 ```
 
-### HyperFrames
+### Manim
 
 ```text
-Turn this launch concept into a HyperFrames composition plan.
+Turn this launch concept into a Manim scene plan.
 
 Product: AI meeting summary tool
 Audience: startup teams and PMs
 Style: restrained, cinematic, minimal
 Aspect ratio: 16:9
-Requirements: deterministic HTML structure, GSAP animation notes, caption timing, final render workflow
+Requirements: Python Scene class structure, mobject hierarchy, caption timing, final render workflow
 ```
 
 ## Repository Layout
