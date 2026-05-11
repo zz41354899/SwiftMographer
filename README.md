@@ -64,15 +64,18 @@ codex plugin marketplace add https://github.com/zz41354899/SwiftMographer.git --
 Then:
 
 1. Restart Codex.
-2. Open the marketplace list.
+2. Open Codex settings and go to the plugin directory.
 3. Choose `SwiftMographer Motion Plugins`.
-4. Install `Motion Storyboard`.
+4. Open `Motion Storyboard`.
+5. Click install, then enable the plugin if Codex shows a separate enable toggle.
 
 Notes:
 
 - `--ref main` pins installation to the main branch.
+- `codex plugin marketplace add` only registers the marketplace source; the plugin itself is installed from the Codex UI.
 - do not use sparse checkout for only `.agents/plugins`; the plugin lives under `plugins/`
 - refresh later with `codex plugin marketplace upgrade`
+- Codex stores installed plugins under `~/.codex/plugins/cache/<marketplace>/<plugin>/<version>/` and tracks enablement in `~/.codex/config.toml`.
 
 ### Claude Code
 

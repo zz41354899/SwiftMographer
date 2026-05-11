@@ -64,15 +64,18 @@ codex plugin marketplace add https://github.com/zz41354899/SwiftMographer.git --
 接著：
 
 1. 重新啟動 Codex。
-2. 打開 marketplace 清單。
+2. 打開 Codex settings，進入 plugin directory。
 3. 選擇 `SwiftMographer Motion Plugins`。
-4. 安裝 `Motion Storyboard`。
+4. 打開 `Motion Storyboard`。
+5. 點擊 install；如果 Codex 額外顯示 enable toggle，請再啟用 plugin。
 
 補充：
 
 - `--ref main` 代表固定使用 main branch
+- `codex plugin marketplace add` 只會註冊 marketplace 來源；plugin 本體要從 Codex UI 安裝
 - 不要只 sparse checkout `.agents/plugins`，因為 plugin 本體在 `plugins/`
 - 之後可用 `codex plugin marketplace upgrade` 更新
+- Codex 會把已安裝 plugin 放在 `~/.codex/plugins/cache/<marketplace>/<plugin>/<version>/`，並在 `~/.codex/config.toml` 記錄啟用狀態。
 
 ### Claude Code
 
