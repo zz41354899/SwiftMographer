@@ -125,6 +125,12 @@ claude plugin install remotion-storyboard@swiftmographer
 
 同名 SVG 仍保留在 `assets/` 作為可編輯的來源圖。Codex manifest 應維持指向 PNG，因為 Codex screenshots 預期是 PNG 檔，部分 install surface 對 SVG 的渲染也不一定一致。Codex manifest 的 starter prompts 也維持在 128 字元 UI 限制內。
 
+## Windows 與 Apple Silicon 相容性
+
+storyboard stop hook 已改由 `plugins/remotion-storyboard/scripts/validate-storyboard.js` 實作，並透過 `node` 啟動，不再寫死 Unix 專用的 Python 路徑。這讓 plugin 可同時支援 Windows native terminal、WSL、Intel macOS，以及 M1、M2、M3 等 Apple Silicon Mac。
+
+Windows native 安裝時，請確認 `node` 可從 `PATH` 執行。WSL 使用者可以沿用 Linux 風格流程，只要 Node.js 安裝在該 WSL distribution 內即可。
+
 ## Skills 分工
 
 ### Remotion
@@ -207,6 +213,7 @@ Requirements: deterministic HTML structure, GSAP animation notes, caption timing
         │   └── *.svg
         ├── hooks/
         ├── refs/
+        ├── scripts/
         └── skills/
 ```
 

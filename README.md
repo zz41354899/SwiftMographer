@@ -125,6 +125,12 @@ Codex install-surface image fields in `plugins/remotion-storyboard/.codex-plugin
 
 The matching SVG files remain in `assets/` as editable source artwork. Keep the Codex manifest pointed at PNG assets because Codex screenshots are expected to be PNG files, and some install surfaces may not render SVGs consistently. Starter prompts in the Codex manifest are also kept under the 128-character UI limit.
 
+## Windows and Apple Silicon Compatibility
+
+The storyboard stop hook is implemented in `plugins/remotion-storyboard/scripts/validate-storyboard.js` and is launched through `node`, not a hard-coded Unix Python path. This keeps the plugin usable across Windows native terminals, WSL, Intel macOS, and Apple Silicon Macs including M1, M2, and M3.
+
+For Windows native installs, make sure `node` is available on `PATH`. WSL users can follow the Linux-style flow as long as Node.js is installed inside the WSL distribution.
+
 ## Skill Coverage
 
 ### Remotion
@@ -207,6 +213,7 @@ Requirements: deterministic HTML structure, GSAP animation notes, caption timing
 				│   └── *.svg
 				├── hooks/
 				├── refs/
+				├── scripts/
 				└── skills/
 ```
 

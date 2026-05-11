@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/usr/bin/python3 -c 'import json,re,sys; payload=json.load(sys.stdin); msg=payload.get(\"last_assistant_message\") or \"\"; markers=(\"Concept Summary\",\"Creative Direction\",\"Scene Timeline\",\"Remotion Storyboard Script\",\"HyperFrames Composition Plan\",\"Markdown Storyboard\"); looks_like_storyboard=any(marker in msg for marker in markers); fence_types=[match.group(1).lower() for match in re.finditer(r\"^```([A-Za-z0-9_-]+)\\s*$\", msg, re.MULTILINE)]; valid_tail=len(fence_types) >= 1 and fence_types[-1] == \"md\"; response={\"continue\": True} if (not looks_like_storyboard or valid_tail) else {\"decision\": \"block\", \"reason\": \"Storyboard responses must end with one standalone ```md``` Markdown Storyboard block.\"}; print(json.dumps(response))'",
+            "command": "node -e \"const path=require('node:path'); const root=process.env.CODEX_PLUGIN_ROOT || process.env.CLAUDE_PLUGIN_ROOT || process.cwd(); require(path.join(root, 'scripts', 'validate-storyboard.js'));\"",
             "timeout": 10,
             "statusMessage": "Validating storyboard artifacts"
           }
