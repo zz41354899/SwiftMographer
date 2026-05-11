@@ -112,6 +112,17 @@ These files define what users see in marketplace and install flows:
 
 The manifests are intentionally aligned around one message: this plugin produces high-quality Markdown storyboard handoffs plus runtime-specific implementation guidance.
 
+## Codex Compatibility Notes
+
+Codex install-surface image fields in `plugins/remotion-storyboard/.codex-plugin/plugin.json` point to PNG files:
+
+- `assets/icon.png`
+- `assets/logo.png`
+- `assets/screenshot-storyboard-board.png`
+- `assets/screenshot-dual-artifacts.png`
+
+The matching SVG files remain in `assets/` as editable source artwork. Keep the Codex manifest pointed at PNG assets because Codex screenshots are expected to be PNG files, and some install surfaces may not render SVGs consistently. Starter prompts in the Codex manifest are also kept under the 128-character UI limit.
+
 ## Skill Coverage
 
 ### Remotion
@@ -190,6 +201,8 @@ Requirements: deterministic HTML structure, GSAP animation notes, caption timing
 				├── .claude-plugin/plugin.json
 				├── .codex-plugin/plugin.json
 				├── assets/
+				│   ├── *.png
+				│   └── *.svg
 				├── hooks/
 				├── refs/
 				└── skills/

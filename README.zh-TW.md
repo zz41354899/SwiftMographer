@@ -112,6 +112,17 @@ claude plugin install remotion-storyboard@swiftmographer
 
 這些檔案的訊息現在已經對齊成同一件事：這個 plugin 交付的是高品質 Markdown storyboard handoff，加上對應 runtime 的實作規劃。
 
+## Codex 相容性注意事項
+
+`plugins/remotion-storyboard/.codex-plugin/plugin.json` 裡的 Codex install-surface 圖像欄位現在都指向 PNG：
+
+- `assets/icon.png`
+- `assets/logo.png`
+- `assets/screenshot-storyboard-board.png`
+- `assets/screenshot-dual-artifacts.png`
+
+同名 SVG 仍保留在 `assets/` 作為可編輯的來源圖。Codex manifest 應維持指向 PNG，因為 Codex screenshots 預期是 PNG 檔，部分 install surface 對 SVG 的渲染也不一定一致。Codex manifest 的 starter prompts 也維持在 128 字元 UI 限制內。
+
 ## Skills 分工
 
 ### Remotion
@@ -190,6 +201,8 @@ Requirements: deterministic HTML structure, GSAP animation notes, caption timing
         ├── .claude-plugin/plugin.json
         ├── .codex-plugin/plugin.json
         ├── assets/
+        │   ├── *.png
+        │   └── *.svg
         ├── hooks/
         ├── refs/
         └── skills/
