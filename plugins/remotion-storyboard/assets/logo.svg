@@ -5,13 +5,15 @@
   <rect x="112" y="112" width="136" height="136" rx="28" fill="#111827"/>
   <rect x="132" y="136" width="72" height="10" rx="5" fill="#F4F1EA"/>
   <rect x="132" y="158" width="96" height="8" rx="4" fill="#9CA3AF"/>
-  <rect x="132" y="184" width="40" height="40" rx="14" fill="#E7E0D4"/>
-  <rect x="184" y="184" width="44" height="18" rx="9" fill="#C2410C"/>
-  <rect x="184" y="208" width="44" height="18" rx="9" fill="#263244"/>
+  <rect x="132" y="184" width="96" height="40" rx="14" fill="#E7E0D4"/>
+  <rect x="144" y="194" width="40" height="6" rx="3" fill="#111827" fill-opacity="0.18"/>
+  <rect x="144" y="206" width="64" height="5" rx="2.5" fill="#9CA3AF"/>
+  <rect x="144" y="216" width="48" height="12" rx="6" fill="#C2410C"/>
+  <rect x="198" y="216" width="22" height="12" rx="6" fill="#263244"/>
   <text x="330" y="148" fill="#0F172A" font-size="68" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="700">Motion Storyboard</text>
-  <text x="332" y="194" fill="#475569" font-size="24" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">Remotion + HyperFrames plugin for structured motion concepts</text>
-  <rect x="332" y="230" width="134" height="32" rx="16" fill="#C2410C" fill-opacity="0.12"/>
-  <text x="356" y="252" fill="#9A3412" font-size="18" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="600">dual artifacts</text>
-  <rect x="482" y="230" width="126" height="32" rx="16" fill="#0F172A" fill-opacity="0.08"/>
-  <text x="509" y="252" fill="#0F172A" font-size="18" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="600">md + html</text>
+  <text x="332" y="194" fill="#475569" font-size="24" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif">High-fidelity Markdown storyboards for Remotion + HyperFrames</text>
+  <rect x="332" y="230" width="154" height="32" rx="16" fill="#C2410C" fill-opacity="0.12"/>
+  <text x="352" y="252" fill="#9A3412" font-size="18" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="600">single handoff</text>
+  <rect x="500" y="230" width="166" height="32" rx="16" fill="#0F172A" fill-opacity="0.08"/>
+  <text x="523" y="252" fill="#0F172A" font-size="18" font-family="Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="600">rich markdown</text>
 </svg>

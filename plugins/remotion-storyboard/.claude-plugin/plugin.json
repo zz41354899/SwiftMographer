@@ -1,0 +1,18 @@
+{
+  "name": "remotion-storyboard",
+  "description": "Generate premium Markdown storyboards and runtime-specific implementation plans for Remotion or HyperFrames.",
+  "version": "0.4.0",
+  "author": {
+    "name": "zz41354899"
+  },
+  "homepage": "https://github.com/zz41354899/SwiftMographer",
+  "repository": "https://github.com/zz41354899/SwiftMographer",
+  "keywords": [
+    "motion-design",
+    "storyboard",
+    "remotion",
+    "hyperframes"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json"
+}

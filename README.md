@@ -1,140 +1,157 @@
 # SwiftMographer
 
-This workspace includes a local Codex plugin for turning rough video ideas into implementation-ready motion storyboards.
+[繁體中文](README.zh-TW.md)
 
-## Included plugin
+SwiftMographer is a GitHub-hosted plugin repository for turning rough motion ideas into high-quality Markdown storyboard handoffs for Remotion and HyperFrames.
 
-- `plugins/remotion-storyboard`
+The repository is designed for two use cases at once:
 
-## Marketplace compatibility
+- marketplace installation in Codex and Claude Code
+- repo-local iteration on runtime-specific storyboard skills, hooks, and install-surface assets
 
-This repository now ships both marketplace entry points:
+## What Ships
 
-- `.agents/plugins/marketplace.json` for the standard Codex repo marketplace path
-- `.claude-plugin/marketplace.json` for Claude Code marketplace compatibility
+- one plugin: `plugins/remotion-storyboard`
+- two runtime-specific skills:
+	- `remotion-storyboard-director`
+	- `hyperframes-storyboard-director`
+- one stop hook that validates the final storyboard contract
+- install-surface assets for marketplace presentation
+- stress-test references for runtime and format regression checks
 
-That means the same GitHub repository can be used in both Codex and Claude Code, but each tool reads a different marketplace manifest shape.
+## Project Constitution
+
+The quality bar and non-negotiable rules live in [CONSTITUTION.md](CONSTITUTION.md).
+
+In short:
+
+- one premium Markdown handoff, not dual Markdown + HTML artifacts
+- scene-level and shot-level thinking are both required
+- runtime truth matters: Remotion stays sequence/component-oriented; HyperFrames stays HTML/clip/track-oriented
+- outputs should be buildable, not decorative or vague
+
+## Delivery Contract
+
+Every storyboard delivery ends with one self-contained `md` block only.
+
+That Markdown handoff should be rich enough for direct design and engineering use, with strong tables, shot detail, runtime notes, and implementation structure. The stop hook at `plugins/remotion-storyboard/hooks/hooks.json` enforces that contract.
+
+## Marketplace Compatibility
+
+This repository ships both marketplace entry points:
+
+- `.agents/plugins/marketplace.json` for Codex
+- `.claude-plugin/marketplace.json` for Claude Code
+
+That means the same GitHub repository can be used in both ecosystems, while each tool reads its own marketplace manifest shape.
 
 ## Install from GitHub
 
-This repository can be installed in Codex directly from GitHub through the marketplace flow described in the official plugin build docs.
+### Codex
 
-### GitHub marketplace command
-
-Register this repository as a marketplace source with the Codex CLI:
+Register this repository as a marketplace source:
 
 ```bash
 codex plugin marketplace add zz41354899/SwiftMographer --ref main
 ```
 
-You can also use the full Git URL form if you prefer:
+You can also use the full Git URL:
 
 ```bash
 codex plugin marketplace add https://github.com/zz41354899/SwiftMographer.git --ref main
 ```
 
-After adding the GitHub marketplace:
+Then:
 
 1. Restart Codex.
-2. Open the plugin directory.
-3. Choose the `SwiftMographer Local Plugins` marketplace.
+2. Open the marketplace list.
+3. Choose `SwiftMographer Motion Plugins`.
 4. Install `Motion Storyboard`.
 
 Notes:
 
-- This is a GitHub install path, not a local path install.
-- `owner/repo` and Git URL sources are both supported by Codex.
-- `--ref main` pins the marketplace to the main branch.
-- Do not use `--sparse .agents/plugins` for this repo. The marketplace file lives in `.agents/plugins/marketplace.json`, but the plugin itself lives under `plugins/`, so sparse checkout of only `.agents/plugins` would miss the actual plugin files.
-- To refresh later, run `codex plugin marketplace upgrade`.
+- `--ref main` pins installation to the main branch.
+- do not use sparse checkout for only `.agents/plugins`; the plugin lives under `plugins/`
+- refresh later with `codex plugin marketplace upgrade`
 
-## Install in Claude Code
+### Claude Code
 
-Claude Code uses the `.claude-plugin/marketplace.json` manifest and a different CLI syntax.
-
-### GitHub marketplace command
-
-Add this repository from GitHub:
+Add this repository as a marketplace source:
 
 ```bash
 claude plugin marketplace add zz41354899/SwiftMographer@main
 ```
 
-You can also use the full Git URL form with a ref suffix:
+Or use the full Git URL:
 
 ```bash
 claude plugin marketplace add https://github.com/zz41354899/SwiftMographer.git#main
 ```
 
-Then install the plugin from the marketplace:
+Then install:
 
 ```bash
-claude plugin install remotion-storyboard@swiftmographer-local
+claude plugin install remotion-storyboard@swiftmographer
 ```
 
 Notes:
 
-- Claude Code uses `@ref` with GitHub shorthand and `#ref` with git URLs.
-- Claude Code reads `.claude-plugin/marketplace.json`, not `.agents/plugins/marketplace.json`.
-- To refresh marketplaces later, run `claude plugin marketplace update`.
-- To validate the marketplace locally in Claude Code environments, run `claude plugin validate .`.
+- Claude Code uses `.claude-plugin/marketplace.json`
+- refresh later with `claude plugin marketplace update`
+- validate locally with `claude plugin validate .`
 
-### Local development alternative
+## Marketplace / Install Surface Source of Truth
 
-If you are iterating on the plugin locally, you can register the repo root as a local marketplace source:
+These files define what users see in marketplace and install flows:
 
-```bash
-codex plugin marketplace add /absolute/path/to/SwiftMographer
-```
+- Codex plugin manifest: `plugins/remotion-storyboard/.codex-plugin/plugin.json`
+- Claude plugin manifest: `plugins/remotion-storyboard/.claude-plugin/plugin.json`
+- Codex marketplace entry: `.agents/plugins/marketplace.json`
+- Claude marketplace entry: `.claude-plugin/marketplace.json`
+- install-surface assets: `plugins/remotion-storyboard/assets/`
 
-This works because the repo already includes a repo-scoped marketplace at `.agents/plugins/marketplace.json` and the plugin directory at `plugins/remotion-storyboard`.
+The manifests are intentionally aligned around one message: this plugin produces high-quality Markdown storyboard handoffs plus runtime-specific implementation guidance.
 
-## Included skills
+## Skill Coverage
 
-- `remotion-storyboard-director`
-- `hyperframes-storyboard-director`
+### Remotion
 
-## What it does
+The Remotion skill is optimized for:
 
-The plugin packages runtime-specific skills focused on:
+- sequence timing
+- component architecture
+- scene and shot structure
+- springs, interpolations, and pacing
+- production-ready Markdown handoff documents
 
-- translating a loose video concept into a structured scene-by-scene storyboard
-- defining Remotion-friendly timing, sequences, transitions, and component boundaries
-- defining HyperFrames-friendly HTML structure, timing attributes, track layout, and render workflow
-- keeping the visual direction minimal, modern, and presentation-grade
-- following the user's language naturally while keeping the underlying structure production-ready
-- enforcing a final dual-artifact handoff with a Markdown storyboard followed by an HTML storyboard
+### HyperFrames
 
-## Bundled hook
+The HyperFrames skill is optimized for:
 
-The plugin now bundles a `Stop` hook via `plugins/remotion-storyboard/hooks/hooks.json`.
+- deterministic HTML composition structure
+- clip timing and track layout
+- CSS / GSAP / Lottie implementation planning
+- runtime-specific Markdown handoff documents
 
-Its job is narrow: when a response looks like a storyboard delivery, it checks that the final two fenced artifacts are:
+## Quality Controls
 
-- one `md` storyboard block
-- one `html` storyboard block
+The repository includes:
 
-If that contract is missing, the hook asks Codex to continue and complete the missing deliverables.
+- a stop hook that validates a final `md` storyboard block
+- stress-test references at `plugins/remotion-storyboard/refs/storyboard-stress-tests.md`
+- shot-density and runtime-adaptation rules inside both skills
 
-## Install-surface metadata
+The current stress tests cover:
 
-The plugin manifest now includes:
+- 6-second logo ident
+- 18-second kinetic typography
+- 45-second explainer
 
-- author and homepage metadata
-- a composer icon
-- a wide logo
-- screenshot assets for the install surface
+Use them to check whether the skills adapt scene count, shot count, pacing, and runtime-specific implementation detail instead of collapsing into a generic product-intro pattern.
 
-## Local marketplace
+## Example Prompts
 
-The repo-scoped marketplace is defined at:
-
-- `.agents/plugins/marketplace.json`
-- `.claude-plugin/marketplace.json`
-
-Codex reads the standard repo marketplace path, while Claude Code reads the Claude-specific marketplace path.
-
-## Example prompt
+### Remotion
 
 ```text
 Turn this 30-second SaaS product intro concept into a Remotion storyboard.
@@ -146,7 +163,7 @@ Aspect ratio: 16:9
 Requirements: subtitle rhythm, no voiceover, end on a product logo lockup
 ```
 
-HyperFrames example:
+### HyperFrames
 
 ```text
 Turn this launch concept into a HyperFrames composition plan.
@@ -157,3 +174,27 @@ Style: restrained, cinematic, minimal
 Aspect ratio: 16:9
 Requirements: deterministic HTML structure, GSAP animation notes, caption timing, final render workflow
 ```
+
+## Repository Layout
+
+```text
+.
+├── .agents/plugins/marketplace.json
+├── .claude-plugin/marketplace.json
+├── CONSTITUTION.md
+├── LICENSE
+├── README.md
+├── README.zh-TW.md
+└── plugins/
+		└── remotion-storyboard/
+				├── .claude-plugin/plugin.json
+				├── .codex-plugin/plugin.json
+				├── assets/
+				├── hooks/
+				├── refs/
+				└── skills/
+```
+
+## License
+
+This repository is licensed under the MIT License. See [LICENSE](LICENSE).

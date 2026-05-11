@@ -1,7 +1,7 @@
 {
   "name": "remotion-storyboard",
-  "version": "0.3.1",
-  "description": "Turn video ideas into precise Remotion or HyperFrames storyboards and implementation-ready scene plans.",
+  "version": "0.4.0",
+  "description": "Turn video ideas into high-fidelity Markdown storyboards and runtime-specific motion plans.",
   "author": {
     "name": "zz41354899",
     "url": "https://github.com/zz41354899"
@@ -19,15 +19,15 @@
   "hooks": "./hooks/hooks.json",
   "interface": {
     "displayName": "Motion Storyboard",
-    "shortDescription": "Generate Apple-grade storyboards for Remotion or HyperFrames.",
-    "longDescription": "Converts rough video concepts into structured runtime-specific scene scripts, synchronized Markdown and HTML storyboard artifacts, and implementation guidance for Remotion or HyperFrames.",
+    "shortDescription": "Generate high-fidelity Markdown storyboards for Remotion or HyperFrames.",
+    "longDescription": "Converts rough video concepts into structured runtime-specific scene scripts, a premium Markdown storyboard handoff, and implementation guidance for Remotion or HyperFrames.",
     "developerName": "zz41354899",
     "category": "Productivity",
     "capabilities": ["Read", "Write"],
     "websiteURL": "https://github.com/zz41354899/SwiftMographer",
     "defaultPrompt": [
-      "Turn this product promo concept into a 45-second Remotion storyboard.",
-      "Turn this launch concept into a deterministic HyperFrames composition plan with HTML structure, timing attributes, and render workflow."
+      "Turn this product promo concept into a 45-second Remotion storyboard with a single premium Markdown handoff.",
+      "Turn this launch concept into a deterministic HyperFrames composition plan with track structure, timing attributes, and a single premium Markdown handoff."
     ],
     "brandColor": "#0F172A",
     "composerIcon": "./assets/icon.svg",
