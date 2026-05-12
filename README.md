@@ -49,24 +49,13 @@ That means the same GitHub repository can be used in both ecosystems, while each
 
 ### Codex
 
-To register, install, and enable the plugin from a local checkout in one step:
+Register this repository as a marketplace source:
 
 ```bash
-node scripts/install-codex-plugin.mjs
+codex plugin marketplace add zz41354899/SwiftMographer
 ```
 
-To keep the marketplace source pointed at GitHub instead of the local checkout:
-
-```bash
-node scripts/install-codex-plugin.mjs --source https://github.com/zz41354899/SwiftMographer.git --ref main
-```
-
-Codex does not currently auto-install third-party plugins when a marketplace is
-added from the CLI. The bootstrap script runs the marketplace registration, copies
-the plugin into Codex's plugin cache, and enables `remotion-storyboard@swiftmographer`
-in `~/.codex/config.toml`.
-
-You can also use the official marketplace registration flow:
+Pin the marketplace to `main`:
 
 ```bash
 codex plugin marketplace add zz41354899/SwiftMographer --ref main
@@ -76,6 +65,12 @@ You can also use the full Git URL:
 
 ```bash
 codex plugin marketplace add https://github.com/zz41354899/SwiftMographer.git --ref main
+```
+
+For local marketplace development, point Codex at the local marketplace root:
+
+```bash
+codex plugin marketplace add ./local-marketplace-root
 ```
 
 Then install and enable it through Codex:
@@ -88,8 +83,8 @@ Then install and enable it through Codex:
 Notes:
 
 - `--ref main` pins installation to the main branch.
-- The Codex marketplace policy marks `Motion Storyboard` as `INSTALLED_BY_DEFAULT`, but current Codex CLI builds still require an install/enable action after `marketplace add`.
-- do not use sparse checkout for only `.agents/plugins`; the plugin lives under `plugins/`
+- The Codex marketplace policy marks `Motion Storyboard` as available for install; current Codex CLI builds still require an install/enable action after `marketplace add`.
+- do not use `--sparse .agents/plugins` for this repository; the plugin body lives under `plugins/remotion-storyboard`
 - refresh later with `codex plugin marketplace upgrade`
 - Codex stores installed plugins under `~/.codex/plugins/cache/<marketplace>/<plugin>/<version>/` and tracks enablement in `~/.codex/config.toml`.
 
