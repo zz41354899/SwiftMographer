@@ -49,7 +49,24 @@ SwiftMographer 是一個以 GitHub 為來源的 plugin repository，目標是把
 
 ### Codex
 
-先把這個 repository 加進 marketplace：
+如果你已經 clone 這個 repo，可以用一條命令註冊、安裝並啟用 plugin：
+
+```bash
+node scripts/install-codex-plugin.mjs
+```
+
+如果想讓 marketplace source 維持指向 GitHub，而不是本地 checkout：
+
+```bash
+node scripts/install-codex-plugin.mjs --source https://github.com/zz41354899/SwiftMographer.git --ref main
+```
+
+目前 Codex CLI 在加入第三方 marketplace 時，不會自動安裝該 marketplace
+裡的 plugin。這個 bootstrap script 會執行 marketplace registration，把 plugin
+放進 Codex plugin cache，並在 `~/.codex/config.toml` 啟用
+`remotion-storyboard@swiftmographer`。
+
+也可以使用官方 marketplace registration 流程：
 
 ```bash
 codex plugin marketplace add zz41354899/SwiftMographer --ref main
@@ -61,7 +78,7 @@ codex plugin marketplace add zz41354899/SwiftMographer --ref main
 codex plugin marketplace add https://github.com/zz41354899/SwiftMographer.git --ref main
 ```
 
-接著：
+接著在 Codex 裡安裝並啟用：
 
 1. 重新啟動 Codex。
 2. 打開 Codex settings，進入 plugin directory。
@@ -71,7 +88,7 @@ codex plugin marketplace add https://github.com/zz41354899/SwiftMographer.git --
 補充：
 
 - `--ref main` 代表固定使用 main branch
-- Codex marketplace policy 已將 `Motion Storyboard` 設為 `INSTALLED_BY_DEFAULT`，以降低不必要的 install gating。如果你的 Codex build 仍顯示 install button，點一次後確認 enable toggle 已開啟。
+- Codex marketplace policy 已將 `Motion Storyboard` 設為 `INSTALLED_BY_DEFAULT`，但目前 Codex CLI 在 `marketplace add` 後仍需要額外 install/enable action。
 - 不要只 sparse checkout `.agents/plugins`，因為 plugin 本體在 `plugins/`
 - 之後可用 `codex plugin marketplace upgrade` 更新
 - Codex 會把已安裝 plugin 放在 `~/.codex/plugins/cache/<marketplace>/<plugin>/<version>/`，並在 `~/.codex/config.toml` 記錄啟用狀態。
