@@ -49,41 +49,54 @@ That means the same GitHub repository can be used in both ecosystems, while each
 
 ### Codex
 
-Register this repository as a marketplace source:
+Install and enable the plugin with the cross-platform bootstrap installer:
 
 ```bash
-codex plugin marketplace add zz41354899/SwiftMographer
+node scripts/install-codex-plugin.mjs
 ```
 
-Pin the marketplace to `main`:
+The installer registers the marketplace, copies the plugin into
+`~/.codex/plugins/cache/swiftmographer/remotion-storyboard/<version>/`, and
+adds this section to `~/.codex/config.toml`:
+
+```toml
+[plugins."remotion-storyboard@swiftmographer"]
+enabled = true
+```
+
+For install without cloning the repository, use the standalone installer.
+
+macOS / Linux:
 
 ```bash
-codex plugin marketplace add zz41354899/SwiftMographer --ref main
+curl -fsSL https://raw.githubusercontent.com/zz41354899/SwiftMographer/main/scripts/install-codex-plugin.mjs -o /tmp/install-swiftmographer.mjs && node /tmp/install-swiftmographer.mjs
 ```
 
-You can also use the full Git URL:
+Windows PowerShell:
+
+```powershell
+iwr https://raw.githubusercontent.com/zz41354899/SwiftMographer/main/scripts/install-codex-plugin.mjs -OutFile "$env:TEMP\install-swiftmographer.mjs"; node "$env:TEMP\install-swiftmographer.mjs"
+```
+
+To keep the marketplace source pinned to GitHub from a local checkout:
 
 ```bash
-codex plugin marketplace add https://github.com/zz41354899/SwiftMographer.git --ref main
+node scripts/install-codex-plugin.mjs --source https://github.com/zz41354899/SwiftMographer.git --ref main
 ```
 
-For local marketplace development, point Codex at the local marketplace root:
+For local marketplace development, point the installer at the local checkout:
 
 ```bash
-codex plugin marketplace add ./local-marketplace-root
+node scripts/install-codex-plugin.mjs --source .
 ```
 
-Then install and enable it through Codex:
-
-1. Restart Codex.
-2. Open Codex settings and go to the plugin directory.
-3. Choose `SwiftMographer Motion Plugins`.
-4. Confirm `Motion Storyboard` is installed and enabled.
+Then restart Codex or start a new thread for `Motion Storyboard` to appear.
 
 Notes:
 
+- Node.js must be available on `PATH`.
 - `--ref main` pins installation to the main branch.
-- The Codex marketplace policy marks `Motion Storyboard` as available for install; current Codex CLI builds still require an install/enable action after `marketplace add`.
+- `codex plugin marketplace add` only registers the marketplace in current Codex CLI builds. The installer performs the cache copy and `config.toml` enablement.
 - do not use `--sparse .agents/plugins` for this repository; the plugin body lives under `plugins/remotion-storyboard`
 - refresh later with `codex plugin marketplace upgrade`
 - Codex stores installed plugins under `~/.codex/plugins/cache/<marketplace>/<plugin>/<version>/` and tracks enablement in `~/.codex/config.toml`.

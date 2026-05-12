@@ -49,41 +49,54 @@ SwiftMographer 是一個以 GitHub 為來源的 plugin repository，目標是把
 
 ### Codex
 
-先把這個 repository 加進 marketplace：
+用跨平台 bootstrap installer 安裝並啟用 plugin：
 
 ```bash
-codex plugin marketplace add zz41354899/SwiftMographer
+node scripts/install-codex-plugin.mjs
 ```
 
-如果要固定使用 `main`：
+installer 會註冊 marketplace，把 plugin 複製到
+`~/.codex/plugins/cache/swiftmographer/remotion-storyboard/<version>/`，並在
+`~/.codex/config.toml` 加上：
+
+```toml
+[plugins."remotion-storyboard@swiftmographer"]
+enabled = true
+```
+
+如果使用者沒有 clone 這個 repo，可以直接下載 standalone installer。
+
+macOS / Linux：
 
 ```bash
-codex plugin marketplace add zz41354899/SwiftMographer --ref main
+curl -fsSL https://raw.githubusercontent.com/zz41354899/SwiftMographer/main/scripts/install-codex-plugin.mjs -o /tmp/install-swiftmographer.mjs && node /tmp/install-swiftmographer.mjs
 ```
 
-也可以用完整 Git URL：
+Windows PowerShell：
+
+```powershell
+iwr https://raw.githubusercontent.com/zz41354899/SwiftMographer/main/scripts/install-codex-plugin.mjs -OutFile "$env:TEMP\install-swiftmographer.mjs"; node "$env:TEMP\install-swiftmographer.mjs"
+```
+
+如果已經 clone repo，但想讓 marketplace source 固定指向 GitHub：
 
 ```bash
-codex plugin marketplace add https://github.com/zz41354899/SwiftMographer.git --ref main
+node scripts/install-codex-plugin.mjs --source https://github.com/zz41354899/SwiftMographer.git --ref main
 ```
 
-本地開發 marketplace 時，可以指向本地 marketplace root：
+本地開發 marketplace 時，可以指向本地 checkout：
 
 ```bash
-codex plugin marketplace add ./local-marketplace-root
+node scripts/install-codex-plugin.mjs --source .
 ```
 
-接著在 Codex 裡安裝並啟用：
-
-1. 重新啟動 Codex。
-2. 打開 Codex settings，進入 plugin directory。
-3. 選擇 `SwiftMographer Motion Plugins`。
-4. 確認 `Motion Storyboard` 已安裝且已啟用。
+接著重新啟動 Codex，或開一個新 thread，`Motion Storyboard` 才會出現。
 
 補充：
 
+- Node.js 必須在 `PATH` 上。
 - `--ref main` 代表固定使用 main branch
-- Codex marketplace policy 會讓 `Motion Storyboard` 顯示為可安裝；目前 Codex CLI 在 `marketplace add` 後仍需要額外 install/enable action。
+- 目前 Codex CLI 的 `codex plugin marketplace add` 只會註冊 marketplace。installer 會額外處理 plugin cache 複製與 `config.toml` 啟用。
 - 不要對這個 repo 使用 `--sparse .agents/plugins`，因為 plugin 本體在 `plugins/remotion-storyboard`
 - 之後可用 `codex plugin marketplace upgrade` 更新
 - Codex 會把已安裝 plugin 放在 `~/.codex/plugins/cache/<marketplace>/<plugin>/<version>/`，並在 `~/.codex/config.toml` 記錄啟用狀態。
