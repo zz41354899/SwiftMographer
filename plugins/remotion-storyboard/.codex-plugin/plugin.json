@@ -17,7 +17,6 @@
     "codex-plugin"
   ],
   "skills": "./skills/",
-  "hooks": "./hooks/hooks.json",
   "interface": {
     "displayName": "Motion Storyboard",
     "shortDescription": "Generate high-fidelity Markdown storyboards for Remotion or Manim.",

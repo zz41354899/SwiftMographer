@@ -14,6 +14,5 @@
     "remotion",
     "manim"
   ],
-  "skills": "./skills/",
-  "hooks": "./hooks/hooks.json"
+  "skills": "./skills/"
 }
